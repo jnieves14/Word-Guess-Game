@@ -1,5 +1,5 @@
-var wordList = ['creme brulee', 'castella', 'baklava', 'bingsoo', 'doughnuts',
-                'daifuku', 'gelato', 'apple pie', 'brownies', 'cannoli'];
+var wordList = ['cremebrulee', 'castella', 'baklava', 'bingsoo', 'doughnuts',
+                'daifuku', 'gelato', 'applepie', 'brownies', 'cannoli'];
 
 // counter
 var wins = 0;
@@ -12,6 +12,23 @@ var lettersInChosenWord = []
 var blanks = 0;
 var blanksAndCorrect = [];
 var wrongGuess =[];
+
+// // AUDIO
+// var audioElement = document.createElement("audio");
+
+
+// audioElement.setAttribute("src", "assets/Sugar-Maroon-5.mp3");
+
+//     // Theme Button
+//     document.getElementById('#audio-button').on("click", function() {
+//         audioElement.play();
+//     });
+    
+//     // Pause Button
+//     document.getElementById('#pause-button').on("click", function() {
+//         audioElement.pause();
+//     });
+
 
 
 
@@ -50,7 +67,7 @@ document.onkeyup = function() {
 
 //RESET FUNCTION
 function reset() {
-   guessesLeft = 11;
+   guessesLeft = 10;
    wrongGuess = [];
    blanksAndCorrect = [];
    blanks =0;
