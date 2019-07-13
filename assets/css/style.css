@@ -1,0 +1,51 @@
+body {
+    font-size: 24px;
+}
+
+.header,
+.scoreTitle,
+.wordBlanks {
+    text-align: center;
+}
+
+.header {
+    border: 1px solid black;
+    padding: 30px;
+    margin: 30px;
+    
+}
+
+.container {
+    border: 1px solid black;
+    padding: 30px;
+    margin: 30px;
+}
+
+.scoreTitle {
+    
+}
+
+.wordBlanks {
+
+}
+
+.scoreOptions {
+
+}
+
+.wins {
+
+}
+
+.losses {
+
+}
+
+.guessesLeft {
+
+}
+
+.lettersGuessed {
+
+}
+
