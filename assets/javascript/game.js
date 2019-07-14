@@ -49,6 +49,8 @@ function startGame() {
        blanksAndCorrect.push("_");
        console.log(blanksAndCorrect);
    }
+   // display blanks of chosenWord
+   document.getElementById('chosenWord').innerHTML = ' ' + blanksAndCorrect.join(" ");
 }
 
 
@@ -120,8 +122,7 @@ function complete() {
         alert('Nice try!');
         document.getElementById('losses').innerHTML = '<strong>Losses: </strong>' + losses;
     }
-    // display blanks of chosenWord
-    document.getElementById('chosenWord').innerHTML = ' ' + blanksAndCorrect.join(" ");
+    
     // display guessesLeft
     document.getElementById('guessesLeft').innerHTML = '<strong># of Guesses Left: </strong>' + guessesLeft;
 }
