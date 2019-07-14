@@ -1,5 +1,5 @@
-var wordList = ['cremebrulee', 'castella', 'baklava', 'bingsoo', 'doughnuts',
-                'daifuku', 'gelato', 'applepie', 'brownies', 'cannoli'];
+var wordList = ['mochi', 'mangostickyrice', 'kakigori', 'bingsoo', 'halohalo',
+                'daifuku', 'ube', 'milktea', 'mangolassi', 'mooncake'];
 
 // counter
 var wins = 0;
@@ -33,6 +33,7 @@ var wrongGuess =[];
 
 
 // GAME START
+
 function startGame() {
     //computer chooses a random word from the wordList array
     chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
