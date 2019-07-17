@@ -4,7 +4,7 @@ var wordList = ['mochi', 'mangostickyrice', 'kakigori', 'bingsoo', 'halohalo',
 // counter
 var wins = 0;
 var losses = 0;
-var guessesLeft = 11
+var guessesLeft = 15
 
 //variables to store values
 var chosenWord= "";
@@ -50,32 +50,18 @@ function startGame() {
        console.log(blanksAndCorrect);
    }
    // display blanks of chosenWord
-   document.getElementById('chosenWord').innerHTML = ' ' + blanksAndCorrect.join(" ");
+   document.getElementById('currentWord').innerHTML = ' ' + blanksAndCorrect.join(" ");
 }
-
-
-// CODE TO EXECUTE CODE
-startGame ()
-
-document.onkeyup = function() {
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-    checkLetters(userGuess);
-    complete();
-    console.log(userGuess);
-
-    //display/update incorrect letters on screen
-    document.getElementById('wrongGuess').innerHTML = '<strong>Letters Guessed: </strong> ' + wrongGuess.join('');
-}
-
 
 //RESET FUNCTION
 function reset() {
-   guessesLeft = 10;
-   wrongGuess = [];
-   blanksAndCorrect = [];
-   blanks =0;
-   startGame()
-}
+    guessesLeft = 15;
+    wrongGuess = [];
+    blanksAndCorrect = [];
+    blanks =0;
+    startGame()
+ }
+
 
 //COMPARE LETTERS
 //check if letter selected by user matches the computer chosen word
@@ -83,7 +69,7 @@ function checkLetters(letter) {
     var lettersInChosenWord = false;
     // true is true if letter entered is in chosenWord
     for (var i=0; i < blanks; i++) {
-        if (chosenWord[i] === letter) {
+        if (chosenWord[i] == letter) {
             lettersInChosenWord = true;
         }
     }
@@ -92,7 +78,7 @@ function checkLetters(letter) {
     if (lettersInChosenWord) {
         //check each letter to see if it is in the chosenWord
         for (var i=0; i < blanks; i++) {
-            if (chosenWord[i] === letter) {
+            if (chosenWord[i] == letter) {
                 blanksAndCorrect[i] = letter;
             }
         }
@@ -100,8 +86,8 @@ function checkLetters(letter) {
     else {
         wrongGuess.push(letter);
         guessesLeft--;
-        console.log(blanksAndCorrect);
     }
+        console.log(blanksAndCorrect);
 }
 
 //SCOREBOARD
@@ -113,16 +99,30 @@ function complete() {
         wins++;
         reset()
         alert('WoW! Great job!');
-        document.getElementById('wins').innerHTML = '<strong>Wins: </strong> ' + wins;
+        document.getElementById('winTracker').innerHTML = '<strong>Wins: </strong> ' + wins;
     }
 
     else if (guessesLeft === 0) {
         losses++;
         reset()
         alert('Nice try!');
-        document.getElementById('losses').innerHTML = '<strong>Losses: </strong>' + losses;
+        document.getElementById('lossTracker').innerHTML = '<strong>Losses: </strong>' + losses;
     }
     
     // display guessesLeft
-    document.getElementById('guessesLeft').innerHTML = '<strong># of Guesses Left: </strong>' + guessesLeft;
+    document.getElementById('currentWord').innerHTML = ' ' + blanksAndCorrect.join(" ");
+    document.getElementById('guessesRemaining').innerHTML = '<strong># of Guesses Left: </strong>' + guessesLeft;
+}
+
+// CODE TO EXECUTE CODE
+startGame ()
+
+document.onkeyup = function() {
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    checkLetters(userGuess);
+    complete();
+    console.log(userGuess);
+
+    //display/update incorrect letters on screen
+    document.getElementById('playerGuess').innerHTML = '<strong>Letters Guessed: </strong> ' + wrongGuess.join('');
 }
